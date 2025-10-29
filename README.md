@@ -1,1 +1,2 @@
-A repo created to host my projects and my writing. 
+I'm Rajlakshmi, an aspiring quant. 
+This Github repo is to showcase my projects.
