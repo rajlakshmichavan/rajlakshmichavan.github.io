@@ -3,30 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Rajlakshmi Chavan</title>
-    <!-- Google Fonts for Header and Body -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
-        Rajlakshmi Chavan
-    </header>
-    <nav class="sidebar">
-        <a href="index.html">Home</a>
-        <a href="projects/index.html">Projects</a>
-        <a href="articles/index.html">Articles</a>
-        <a href="daily-logs/index.html">Daily logs</a>
-        <a href="bio.html">Bio</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <div class="main-content">
-        <p>
-            Welcome to my website. I am Rajlakshmi.<br>
-            This website is a record of everything I am building, researching, reading and thinking about in an effort to understand how the world works and where it's headed.<br>
-            My main interests include economics, finance, sports, business and literature.
-        </p>
+
+    <div class="top-panel">
+        <div class="top-title">Rajlakshmi Chavan</div>
+        <div class="top-intro">a record of everything I am building, researching, reading and thinking about.</div>
     </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects/index.html">Projects</a></li>
+                    <li><a href="articles/index.html">Articles</a></li>
+                    <li><a href="daily-logs/index.html">Daily logs</a></li>
+                    <li><a href="bio.html">Bio</a></li>
+                    <li><a href="FAQs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <div class="carousel">
+                <h2>Latest projects</h2>
+                <div class="carousel-panel">
+                    <div class="carousel-tiles">
+                        <a class="tile" href="projects/index.html">
+                            <div class="tile-title">Risk &amp; Return in Indian Equity Markets</div>
+                            <div class="tile-date">Coming soon</div>
+                            <div class="tile-snippet">Empirical asset pricing using CAPM and Fama-French factors on NSE data.</div>
+                        </a>
+                        <a class="tile" href="projects/index.html">
+                            <div class="tile-title">Option Pricing Models</div>
+                            <div class="tile-date">Coming soon</div>
+                            <div class="tile-snippet">Implementing and comparing Black-Scholes and extensions on real market data.</div>
+                        </a>
+                        <a class="tile" href="projects/index.html">
+                            <div class="tile-title">Credit as a Market Signal</div>
+                            <div class="tile-date">Coming soon</div>
+                            <div class="tile-snippet">Does creditworthiness predict equity price movements? A quantitative study.</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-header">
+                    <div class="article-title">About this site</div>
+                </div>
+                <div class="article-content">
+                    <p>
+                        I am an Academic Associate in Decision Sciences at IIM Bangalore, with a background in Economics from GIPE Pune and Imperial College London.
+                        This site documents my work in quantitative finance — projects, research notes, and learning logs — as I build toward a career in quant trading and research.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-sitemap">
+        <a class="footer-link" href="index.html">Home</a>
+        <a class="footer-link" href="bio.html">About</a>
+        <a class="footer-link" href="contact.html">Contact</a>
+    </footer>
+
 </body>
 </html>
