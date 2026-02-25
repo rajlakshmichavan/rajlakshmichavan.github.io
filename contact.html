@@ -1,25 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Contact - Rajlakshmi Chavan</title>
+    <meta charset="UTF-8">
+    <title>Rajlakshmi Chavan — Contact</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <nav class="sidebar">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="articles.html">Articles</a>
-        <a href="daily-logs.html">Daily logs</a>
-        <a href="bio.html">Bio</a>
-        <a href="FAQs.html">FAQs</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <div class="main-content">
-    <h1>Contact</h1>
-    <ul>
-        <li>Article 1: ...</li>
-        <li>Article 2: ...</li>
-    </ul>
-    <a href="index.html">Home</a>
+    <div class="top-panel">
+        <div class="top-title">Rajlakshmi Chavan</div>
+        <div class="top-intro">a record of everything I am building, researching, reading and thinking about.</div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <nav><ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects/index.html">Projects</a></li>
+                <li><a href="articles/index.html">Articles</a></li>
+                <li><a href="daily-logs/index.html">Daily logs</a></li>
+                <li><a href="bio.html">Bio</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul></nav>
+        </div>
+        <div class="content">
+
+            <div class="article">
+                <div class="article-header"><div class="article-title">Contact</div></div>
+                <div class="article-content">
+                    <p>Feel free to reach out about projects, research, or opportunities.</p>
+                    <p><strong>Email:</strong> <a href="mailto:rajlakshmi.emp@gmail.com" style="color:#4B2E05;">rajlakshmi.emp@gmail.com</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rajlakshmichavan/" target="_blank" style="color:#4B2E05;">linkedin.com/in/rajlakshmichavan</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://rajlakshmichavan.github.io/" target="_blank" style="color:#4B2E05;">rajlakshmichavan.github.io</a></p>
+                </div>
+            </div>
+            <div class="article">
+                <div class="article-header"><div class="article-title" style="font-size:1.2rem;">Send a message</div></div>
+                <div class="article-content">
+                    <form action="https://formspree.io/f/rajlakshmi.emp@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:1rem;max-width:480px;">
+                        <input type="text" name="name" placeholder="Your name" required style="padding:0.6rem 0.8rem;border:1px solid #ddd;border-radius:6px;font-size:0.95rem;font-family:Arial,sans-serif;">
+                        <input type="email" name="email" placeholder="Your email" required style="padding:0.6rem 0.8rem;border:1px solid #ddd;border-radius:6px;font-size:0.95rem;font-family:Arial,sans-serif;">
+                        <textarea name="message" placeholder="Your message" rows="5" required style="padding:0.6rem 0.8rem;border:1px solid #ddd;border-radius:6px;font-size:0.95rem;font-family:Arial,sans-serif;resize:vertical;"></textarea>
+                        <button type="submit" style="background:#4B2E05;color:#fff;border:none;border-radius:6px;padding:0.7rem 1.4rem;font-size:0.95rem;cursor:pointer;align-self:flex-start;font-family:Arial,sans-serif;">Send</button>
+                    </form>
+                    <p style="font-size:0.8rem;color:#888;margin-top:0.8rem;">The contact form uses <a href="https://formspree.io" target="_blank" style="color:#4B2E05;">Formspree</a> — sign up for a free account and replace the form action URL with your own endpoint. Or just email directly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-sitemap">
+        <a class="footer-link" href="index.html">Home</a>
+        <a class="footer-link" href="bio.html">About</a>
+        <a class="footer-link" href="contact.html">Contact</a>
+    </footer>
 </body>
 </html>
