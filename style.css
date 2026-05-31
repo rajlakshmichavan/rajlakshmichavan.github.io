@@ -354,3 +354,5 @@ body.dark-mode .dark-mode-toggle {
   background: #e8c99a;
   color: #1a1a1a;
 }
+
+body.dark-mode .carousel h2 { color: #e8dcc8; }
