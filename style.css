@@ -378,8 +378,11 @@ body.dark-mode .profile-photo {
 }
 
 @media (max-width: 700px) {
-    .about-row {
-        flex-direction: column;
-        align-items: center;
+   .about-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.8rem;
+    margin-top: 1.2rem;
+}
     }
 }
