@@ -356,3 +356,30 @@ body.dark-mode .dark-mode-toggle {
 }
 
 body.dark-mode .carousel h2 { color: #e8dcc8; }
+
+.about-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.8rem;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    border: 3px solid #f0ead8;
+}
+
+body.dark-mode .profile-photo {
+    border-color: #3a3a2a;
+}
+
+@media (max-width: 700px) {
+    .about-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
