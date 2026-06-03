@@ -79,7 +79,7 @@
 
     <button class="dark-mode-toggle" id="darkToggle" onclick="document.body.classList.toggle('dark-mode'); this.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️'">☀️</button>
 
-    <script>
+<script>
         const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRiZAJ0g2rQ29FimK5PUCiTZnpBgLui51t--KUsO64Fff0eHUN6IM_2pDvQVMZVVoJW8TWx8UeKnO91/pub?output=csv";
 
         function parseCSV(text) {
@@ -156,6 +156,18 @@
                 });
                 body.appendChild(tabBar);
                 body.appendChild(panelsDiv);
+
+                // Link button
+                if (row["Link"]) {
+                    const linkBtn = document.createElement("a");
+                    linkBtn.href = row["Link"];
+                    linkBtn.target = "_blank";
+                    linkBtn.rel = "noopener noreferrer";
+                    linkBtn.textContent = "View work →";
+                    linkBtn.style.cssText = "display:inline-block;margin-top:1rem;font-size:0.85rem;color:#4B2E05;text-decoration:underline;font-family:Helvetica,Arial,sans-serif;";
+                    body.appendChild(linkBtn);
+                }
+
                 item.appendChild(trigger);
                 item.appendChild(body);
                 accordion.appendChild(item);
