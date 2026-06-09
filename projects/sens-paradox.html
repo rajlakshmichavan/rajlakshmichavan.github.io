@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sen's Paradox in Lean — Rajlakshmi Chavan</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-title {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.6rem;
+            font-weight: normal;
+            color: #111;
+            margin: 0 0 0.3rem 0;
+        }
+        .project-meta {
+            font-size: 0.85rem;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        .project-meta a {
+            color: #4B2E05;
+        }
+        .project-section {
+            margin-bottom: 2rem;
+        }
+        .project-section h2 {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #4B2E05;
+            margin: 0 0 0.6rem 0;
+            border-bottom: 1px solid #f0ead8;
+            padding-bottom: 0.3rem;
+        }
+        .project-section p, .project-section li {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: #222;
+        }
+        .project-section ul {
+            padding-left: 1.4rem;
+            margin: 0.5rem 0;
+        }
+        .project-section li {
+            margin-bottom: 0.4rem;
+        }
+        .condition-block {
+            background: #fdf6ee;
+            border-left: 3px solid #c8a97a;
+            padding: 0.7rem 1rem;
+            margin: 0.5rem 0;
+            font-size: 0.93rem;
+            line-height: 1.7;
+            color: #222;
+            border-radius: 0 6px 6px 0;
+        }
+        .github-embed {
+            margin-top: 3rem;
+        }
+        .github-embed h2 {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #4B2E05;
+            margin: 0 0 0.8rem 0;
+            border-bottom: 1px solid #f0ead8;
+            padding-bottom: 0.3rem;
+        }
+        .github-link-btn {
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1.2rem;
+            background: #4B2E05;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.88rem;
+            transition: background 0.2s;
+        }
+        .github-link-btn:hover { background: #7a4f1e; }
+
+        /* Dark mode */
+        body.dark-mode .project-title { color: #e8dcc8; }
+        body.dark-mode .project-meta { color: #aaa; }
+        body.dark-mode .project-meta a { color: #e8c99a; }
+        body.dark-mode .project-section h2 { color: #e8c99a; border-bottom-color: #3a3a2a; }
+        body.dark-mode .project-section p,
+        body.dark-mode .project-section li { color: #ccc; }
+        body.dark-mode .condition-block { background: #2a2318; border-left-color: #7a5a2a; color: #ccc; }
+        body.dark-mode .github-embed h2 { color: #e8c99a; border-bottom-color: #3a3a2a; }
+    </style>
+</head>
+<body>
+    <div class="top-panel">
+        <div class="top-title">Rajlakshmi Chavan</div>
+        <div class="top-intro">a record of everything I am building, researching, reading and thinking about.</div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <nav><ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects/index.html">Projects</a></li>
+                <li><a href="../articles/index.html">Articles</a></li>
+                <li><a href="../daily-logs.html">Daily logs</a></li>
+                <li><a href="../bio.html">Bio</a></li>
+                <li><a href="../FAQs.html">FAQs</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul></nav>
+        </div>
+        <div class="content">
+            <div class="project-title">Sen's Paradox in Lean 4</div>
+            <div class="project-meta">
+                Completed · May 2026 &nbsp;·&nbsp;
+                <a href="https://github.com/rajlakshmichavan/SenParadoxInLean" target="_blank">View on GitHub →</a>
+            </div>
+
+            <div class="project-section">
+                <h2>Introduction</h2>
+                <p>Amartya Sen published <em>Impossibility of a Paretian Liberal</em> in 1970, marking a landmark contribution to welfare economics. For his seminal contributions to the field, he won the Nobel Prize for Economics in 1998. The paper formalises the concept of individual liberty in an extremely weak form and examines its consequences for broader society, borrowing logically from Arrow's Impossibility Theorem (1951).</p>
+                <p>This project formalises the entire paper in Lean 4 — writing out the logic of Sen's proof in a form that a theorem prover can automatically verify.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>Setup: States, Individuals, and Social Preferences</h2>
+                <p>Sen defines <em>R<sub>i</sub></em> as the ordering of the <em>i</em>th individual over the set <em>X</em> of all possible social states, across <em>n</em> individuals. <em>R</em> is the social preference relation to be determined. He then defines three types of collective choice rules:</p>
+                <ul>
+                    <li><strong>Collective Choice Rule (CCR):</strong> A functional relation <em>f</em> such that for any set of <em>n</em> individual orderings, exactly one social preference relation is determined.</li>
+                    <li><strong>Social Welfare Function (SWF):</strong> A CCR restricted to orderings. SWF ⊂ SDF ⊂ CCR.</li>
+                    <li><strong>Social Decision Function (SDF):</strong> A CCR restricted to social preference relations that generate a choice function — the "best" element from any subset of <em>X</em>.</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2>The Four Conditions</h2>
+                <div class="condition-block"><strong>Condition U (Unrestricted Domain):</strong> Every logically possible set of individual orderings is in the domain of the CCR.</div>
+                <div class="condition-block"><strong>Condition P (Pareto Principle):</strong> If every individual prefers <em>x</em> to <em>y</em>, society must prefer <em>x</em> to <em>y</em>. Formally: xP<sub>i</sub>y ∀ i ∈ N ⟹ xPy.</div>
+                <div class="condition-block"><strong>Condition L (Liberalism):</strong> For each individual <em>i</em>, there is at least one pair of alternatives (x, y) such that if the individual prefers x to y, society's preference follows.</div>
+                <div class="condition-block"><strong>Condition L' (Weak Liberalism):</strong> A weaker version — only two individuals <em>k</em> and <em>j</em> are decisive over their respective pairs (x,y) and (z,w). ∃ at least two individuals (i, j) ∈ N; ∃ (x,y), (z,w) s.t. xPiy ⟹ xPy and zPjw ⟹ zPw.</div>
+            </div>
+
+            <div class="project-section">
+                <h2>The Theorems</h2>
+                <p><strong>Theorem I:</strong> There is no SDF that can simultaneously satisfy Conditions U, P, and L.</p>
+                <p><strong>Theorem II:</strong> There is no SDF that can simultaneously satisfy Conditions U, P, and L'. (Theorem I follows as a corollary, since L' is weaker than L.)</p>
+            </div>
+
+            <div class="project-section">
+                <h2>Proof of Theorem II</h2>
+                <p>Two individuals (1 and 2) and two choice sets: Individual 1 over (x, y); Individual 2 over (z, w). Two cases are considered:</p>
+                <p><strong>Case a) x = z (one alternative in common):</strong> Everyone prefers y to w. By Condition L': xPy and wPx. By Condition P: yPw. This creates a cycle x → y → w → x with no best element, contradicting the existence of a choice function. No SDF exists.</p>
+                <p><strong>Case b) All four alternatives distinct:</strong> Individual 1 prefers x to y, w to z, and (by Pareto) y to z. Individual 2 prefers z to w, y to z, and (by Pareto) w to x. Condition L' gives xPy and zPw; Condition P gives wPx and yPz. Again, no best alternative exists in this choice set — no SDF exists.</p>
+            </div>
+
+            <div class="github-embed">
+                <h2>Code</h2>
+                <a class="github-link-btn" href="https://github.com/rajlakshmichavan/SenParadoxInLean" target="_blank">View full proof on GitHub →</a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-sitemap">
+        <a class="footer-link" href="../index.html">Home</a>
+        <a class="footer-link" href="../bio.html">About</a>
+        <a class="footer-link" href="../contact.html">Contact</a>
+    </footer>
+    <button class="dark-mode-toggle" id="darkToggle" onclick="document.body.classList.toggle('dark-mode'); this.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️'">☀️</button>
+</body>
+</html>
