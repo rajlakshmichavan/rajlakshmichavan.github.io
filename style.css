@@ -210,7 +210,7 @@ body {
 
 /* Tile snippet text */
 .tile-snippet {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     color: #555;
     line-height: 1.9;
     flex: 1;
