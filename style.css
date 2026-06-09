@@ -148,7 +148,7 @@ body {
 }
 
 .carousel h2 {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: #111;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
@@ -208,10 +208,12 @@ body {
   font-style: italic;
 }
 
+Tile snippet text */
 .tile-snippet {
-  font-size: 0.95rem;
-  color: #222;
-  flex: 1;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.7;
+    flex: 1;
 }
 
 @media (max-width: 900px) {
@@ -370,11 +372,12 @@ body.dark-mode .carousel h2 { color: #e8dcc8; }
 .profile-photo {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 10px;
     object-fit: cover;
     object-position: center top;
     flex-shrink: 0;
-    border: 3px solid #f0ead8;
+    border: none;
+    margin-top: 1rem;
 }
 
 body.dark-mode .profile-photo {
