@@ -183,6 +183,10 @@ body {
   min-width: 0;
 }
 
+.project-title {
+    margin-top: 1.5rem;
+}
+
 .tile:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.07);
   border-color: #e3e3c4;
