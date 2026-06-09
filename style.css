@@ -210,10 +210,10 @@ body {
 
 /* Tile snippet text */
 .tile-snippet {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.9;
-    flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #222;
+      margin: 1rem 0 1rem 0;
 }
 
 @media (max-width: 900px) {
