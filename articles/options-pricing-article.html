@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>From Theory to Trading: Options Pricing and Delta Hedging — Rajlakshmi Chavan</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .article-page-title { font-family: Helvetica, Arial, sans-serif; font-size: 1.6rem; font-weight: normal; color: #111; margin: 1.5rem 0 0.3rem 0; }
+        .article-page-meta { font-size: 0.85rem; color: #888; font-style: italic; margin-bottom: 2rem; }
+        .article-page-body p { font-size: 0.95rem; line-height: 1.75; color: #222; margin: 1rem 0; }
+        .article-page-body h2 { font-size: 1.1rem; font-family: Helvetica, Arial, sans-serif; font-weight: bold; color: #4B2E05; margin: 2rem 0 0.5rem 0; border-bottom: 1px solid #f0ead8; padding-bottom: 0.3rem; }
+        .article-page-body a { color: #1a5276; }
+        .article-back { font-size: 0.85rem; color: #4B2E05; text-decoration: underline; display: inline-block; margin-bottom: 1.5rem; }
+        .formula-block { background: #f8f5f0; border-left: 3px solid #c8a97a; border-radius: 0 6px 6px 0; padding: 0.8rem 1.2rem; margin: 1rem 0; font-family: 'Georgia', serif; font-size: 0.95rem; color: #2a2a2a; font-style: italic; }
+        .references { margin-top: 3rem; border-top: 1px solid #f0ead8; padding-top: 1rem; }
+        .references p { font-size: 0.82rem; color: #888; line-height: 1.6; margin: 0.4rem 0; }
+        body.dark-mode .article-page-title { color: #e8dcc8; }
+        body.dark-mode .article-page-meta { color: #aaa; }
+        body.dark-mode .article-page-body p { color: #ccc; }
+        body.dark-mode .article-page-body h2 { color: #e8c99a; border-bottom-color: #3a3a2a; }
+        body.dark-mode .article-back { color: #e8c99a; }
+        body.dark-mode .formula-block { background: #1e1a14; border-left-color: #7a5a2a; color: #e8dcc8; }
+        body.dark-mode .references p { color: #666; }
+    </style>
+</head>
+<body>
+    <div class="top-panel">
+        <div class="top-title">Rajlakshmi Chavan</div>
+        <div class="top-intro">a record of everything I am building, researching, reading and thinking about.</div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <nav><ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects/index.html">Projects</a></li>
+                <li><a href="../articles/index.html">Articles</a></li>
+                <li><a href="../daily-logs.html">Weekly logs</a></li>
+                <li><a href="../bio.html">Bio</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul></nav>
+        </div>
+        <div class="content">
+            <a class="article-back" href="index.html">← Back to Articles</a>
+            <div class="article-page-title">From Theory to Trading: Options Pricing and Delta Hedging in NIFTY50 Markets</div>
+            <div class="article-page-meta">June 2026</div>
+            <div class="article-page-body">
+
+                <p>Markets exist because people disagree about the future. A farmer who expects a bad harvest wants to lock in today's wheat price. A flour mill that fears prices will rise wants the same certainty from the other side. This shared need for price certainty gave birth to futures contracts: agreements to buy or sell an asset at a predetermined price on a future date. Neither party knows where prices will be at expiry, but both know exactly what they will pay or receive. Uncertainty is replaced by commitment.</p>
+                <p>But commitment cuts both ways. A futures contract obligates you to follow through whether the outcome is favourable or not. What if you wanted the protection of a locked-in price, but only wanted to act on it if it was worth your while? This is where options come in. An option gives you the right, but not the obligation, to buy or sell at an agreed price. You pay a premium upfront for this right, and if the market moves against you, you simply walk away. Your loss is capped at what you paid. A futures buyer who locked in NIFTY at 22,000 must honour that price even if NIFTY falls to 18,000. An options buyer in the same position simply lets the contract expire.</p>
+                <p>This asymmetry — the fact that options protect you on the downside while letting you participate on the upside — makes them enormously valuable. But it also makes them surprisingly difficult to price.</p>
+
+                <h2>The Problem Nobody Could Solve</h2>
+                <p>Before 1973, options traders priced contracts using intuition, experience and rough rules of thumb. There was no formula. Nobody could answer with precision: given everything we know today about the stock price, the strike, the time remaining and market volatility, what is this option actually worth?</p>
+                <p>The challenge was that the option's value depends on something nobody knows — specifically where the price will be at expiry. And unlike a futures contract where both sides commit to a fixed price, an option's payoff is asymmetric. It only pays out if the market moves in your favour.</p>
+                <p>Fischer Black, Myron Scholes and Robert Merton cracked this in 1973 with a deceptively elegant insight. You do not need to predict where the price will go. You just need to continuously adjust your hedge as the price moves, and the cost of maintaining that hedge is the fair price of the option.</p>
+
+                <h2>The Black-Scholes Model</h2>
+                <p>Their insight was this: if you sell a call option and simultaneously buy a precisely calculated quantity of the underlying stock, you can construct a portfolio that is momentarily riskless. It neither gains nor loses value for a small move in the stock price. Since this portfolio is riskless, it must earn exactly the risk-free rate. And from this constraint, you can derive the fair price of the option.</p>
+                <p>The formula for a European call on a stock is:</p>
+                <div class="formula-block">C = S × N(d₁) − K × e<sup>−rT</sup> × N(d₂)</div>
+                <p>Where S is the current stock price, K is the strike price, r is the risk-free rate, T is time to expiry in years, σ is volatility and N(·) is the cumulative standard normal distribution. The d₁ term tells you how far in or out of the money the option is, adjusted for time and volatility:</p>
+                <div class="formula-block">d₁ = [log(S/K) + (r + σ²/2) × T] / (σ × √T)</div>
+                <p>The r + σ²/2 in d₁ reflects two things: the cost of carrying the stock position (r) and a mathematical correction of σ²/2 that accounts for the asymmetry between gains and losses in percentage terms. In practice, since σ cannot be observed directly, it is backed out from market prices using numerical methods — specifically Newton-Raphson iteration: start with a volatility guess, calculate what option price that guess produces, compare it to the actual market price, and adjust until the answer converges.</p>
+                <p><em>A note on European vs. American options: a European option can only be exercised at expiry. An American option can be exercised on any day before expiry. NIFTY50 options are European.</em></p>
+
+                <h2>Why Black-76 Had to Come About</h2>
+                <p>Black-Scholes was built for options on stocks. When you buy a stock, you pay for it upfront — the full price leaves your account immediately. This cost of tying up capital is reflected in the r term in d₁.</p>
+                <p>But NIFTY options are not written on the spot index. They are written on NIFTY futures contracts. And when you buy a futures contract, you pay nothing upfront — you only post margin as collateral. There is no cost of carry because no capital has been deployed.</p>
+                <p>More importantly, the futures price F already reflects where the market expects NIFTY to be at expiry. It has already incorporated the risk-free rate through the relationship F = S × e<sup>rT</sup>. If you used Black-Scholes with the futures price as the underlying, you would be double-counting r: once in F and once in d₁. The option would be mispriced.</p>
+                <p>Fischer Black solved this in 1976 by replacing S with F and removing r from d₁:</p>
+                <div class="formula-block">d₁ = [log(F/K) + (σ²/2) × T] / (σ × √T)</div>
+                <p>The only place r now appears is in the discounting term e<sup>−rT</sup>, which brings the future payoff back to present value. This is Black-76: the correct model for pricing options on futures, and the one used throughout this analysis of NIFTY50 options data.</p>
+
+                <h2>Delta: The Option's Sensitivity</h2>
+                <p>Once you can price an option, the next question is: how does that price change as the market moves? Delta answers this. It measures how much the option price changes for a ₹1 move in the underlying futures price. In Black-76:</p>
+                <div class="formula-block">Call delta = e<sup>−rT</sup> × N(d₁)<br>Put delta = −e<sup>−rT</sup> × N(−d₁)</div>
+                <p>The e<sup>−rT</sup> discounting appears because with futures options, profits are settled at expiry rather than immediately. The sensitivity therefore needs to be brought back to present value.</p>
+                <p>Delta ranges from 0 to 1 for calls and −1 to 0 for puts. A deep ITM call has delta close to 1: it moves almost rupee for rupee with the futures price. A deep OTM call has delta close to 0. An ATM option sits around 0.5. Plotting delta against strike price for a single trading day produces a smooth S-shaped curve, starting near 1 for low strikes, passing through 0.5 at the futures price, and approaching 0 for high strikes.</p>
+
+                <h2>Delta Hedging: Pre-Arranging the Other Side</h2>
+                <p>When a market maker sells a call option on NIFTY, they face a direct problem. If NIFTY rises sharply, they owe the buyer a large payout. They need to protect themselves against this.</p>
+                <p>The solution is delta hedging. If the call has a delta of 0.5, the market maker goes short on NIFTY futures in proportion to their delta exposure. By doing so, they have effectively pre-arranged a counterparty and locked in a selling price for the futures. If NIFTY rises and the call costs them money, the short futures position generates an offsetting profit. If NIFTY falls, the call expires worthless and the premium collected upfront is pure profit, with the short futures position also gaining.</p>
+                <p>The elegance of this is that the market maker does not need to predict where NIFTY will go. They simply maintain a delta-neutral portfolio, continuously adjusting their futures position as delta changes with price moves and time. This rebalancing is the living implementation of the Black-76 model, executed in real time across every options desk in the market.</p>
+
+                <div class="references">
+                    <p><strong>References</strong></p>
+                    <p>Black, F. (1976). The pricing of commodity contracts. <em>Journal of Financial Economics</em>, 3(1-2), 167–179.</p>
+                    <p>Black, F., and Scholes, M. (1973). The pricing of options and corporate liabilities. <em>Journal of Political Economy</em>, 81(3), 637–654.</p>
+                    <p>Merton, R. C. (1973). Theory of rational option pricing. <em>The Bell Journal of Economics and Management Science</em>, 4(1), 141–183.</p>
+                    <p><em>This article draws on options data from the National Stock Exchange of India covering NIFTY index options from 2013 to 2024, with implied volatility and delta estimated using the Black-76 framework.</em></p>
+                </div>
+
+                <p style="font-size:0.8rem; color:#aaa; margin-top:2rem;">© Rajlakshmi Chavan. All rights reserved. This article may not be reproduced or used without explicit written permission from the author.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-sitemap">
+        <a class="footer-link" href="../index.html">Home</a>
+        <a class="footer-link" href="../bio.html">About</a>
+        <a class="footer-link" href="../contact.html">Contact</a>
+    </footer>
+    <button class="dark-mode-toggle" id="darkToggle" onclick="document.body.classList.toggle('dark-mode'); this.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️'">☀️</button>
+</body>
+</html>
