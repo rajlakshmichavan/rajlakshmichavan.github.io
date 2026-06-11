@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Can Society Be Both Fair and Free? — Rajlakshmi Chavan</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .article-page-title { font-family: Helvetica, Arial, sans-serif; font-size: 1.6rem; font-weight: normal; color: #111; margin: 1.5rem 0 0.3rem 0; }
+        .article-page-meta { font-size: 0.85rem; color: #888; font-style: italic; margin-bottom: 2rem; }
+        .article-page-body p { font-size: 0.95rem; line-height: 1.75; color: #222; margin: 1rem 0; }
+        .article-page-body h2 { font-size: 1.1rem; font-family: Helvetica, Arial, sans-serif; font-weight: bold; color: #4B2E05; margin: 2rem 0 0.5rem 0; border-bottom: 1px solid #f0ead8; padding-bottom: 0.3rem; }
+        .article-page-body a { color: #1a5276; }
+        .article-back { font-size: 0.85rem; color: #4B2E05; text-decoration: underline; display: inline-block; margin-bottom: 1.5rem; }
+        .code-block { background: #f8f5f0; border-left: 3px solid #c8a97a; border-radius: 0 6px 6px 0; padding: 1rem 1.2rem; margin: 1rem 0; font-family: 'Courier New', monospace; font-size: 0.88rem; color: #2a2a2a; overflow-x: auto; line-height: 1.6; }
+        body.dark-mode .article-page-title { color: #e8dcc8; }
+        body.dark-mode .article-page-meta { color: #aaa; }
+        body.dark-mode .article-page-body p { color: #ccc; }
+        body.dark-mode .article-page-body h2 { color: #e8c99a; border-bottom-color: #3a3a2a; }
+        body.dark-mode .article-back { color: #e8c99a; }
+        body.dark-mode .code-block { background: #1e1a14; border-left-color: #7a5a2a; color: #e8dcc8; }
+    </style>
+</head>
+<body>
+    <div class="top-panel">
+        <div class="top-title">Rajlakshmi Chavan</div>
+        <div class="top-intro">a record of everything I am building, researching, reading and thinking about.</div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <nav><ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects/index.html">Projects</a></li>
+                <li><a href="../articles/index.html">Articles</a></li>
+                <li><a href="../daily-logs.html">Weekly logs</a></li>
+                <li><a href="../bio.html">Bio</a></li>
+                <li><a href="../FAQs.html">FAQs</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul></nav>
+        </div>
+        <div class="content">
+            <a class="article-back" href="index.html">← Back to Articles</a>
+            <div class="article-page-title">Can Society Be Both Fair and Free? Sen's Uncomfortable Answer</div>
+            <div class="article-page-meta">May 2026</div>
+            <div class="article-page-body">
+
+                <p>In 1970, Amartya Sen asked a deceptively simple question: can a society respect individual freedom and still make consistent collective decisions? His answer, published in the <em>Journal of Political Economy</em>, was no — and the proof is as elegant as it is unsettling.</p>
+
+                <h2>The Problem Sen Was Solving</h2>
+                <p>To understand why this matters, you have to go back to 1951, when Kenneth Arrow proved something deeply uncomfortable about democracy. Arrow showed that no voting rule can simultaneously satisfy four completely reasonable conditions — things like "if everyone prefers x to y, society should too" and "no single person should be a dictator." You cannot have all four at once. Any rule that satisfies the first three must be a dictatorship.</p>
+                <p>Arrow's result was a shock. But it said nothing about individual rights. It was purely about aggregating preferences. Sen's question was sharper: what happens when we add even the weakest possible notion of personal freedom to the picture?</p>
+
+                <h2>What "Minimal Liberalism" Actually Means</h2>
+                <p>Sen does not ask for much. He does not require that every person have rights over every decision. He only asks that <em>at least two people</em> each have <em>one pair of alternatives</em> over which they are personally decisive. If you prefer to read a book or not, that preference should determine society's ranking on that specific question — regardless of what everyone else thinks.</p>
+                <p>This is Condition L*, or Minimal Liberalism. Two people. One pair each. That is all.</p>
+                <p>He also keeps Arrow's Pareto condition: if every single person in society prefers x to y, then society must prefer x to y. Unanimity should count for something.</p>
+                <p>The question is: can any social decision rule satisfy both?</p>
+
+                <h2>The Proof, Without the Symbols</h2>
+                <p>The answer is no, and here is the intuition.</p>
+                <p>Suppose we have two individuals — call them Person 1 and Person 2 — each with one decisive pair. Person 1 is decisive over (x, y) and Person 2 is decisive over (z, w). Now construct a very specific situation where Person 1 prefers x to y, Person 2 prefers w to z, and <em>everyone</em> prefers y to w.</p>
+                <p>Apply the conditions:</p>
+                <p>Minimal Liberalism says Person 1 gets their way on their pair — so society prefers x to y. It also says Person 2 gets their way — so society prefers w to z. The Pareto condition says unanimity must be respected — so society prefers y to w.</p>
+                <p>Now you have: x beats y, y beats w, and w beats z. But the adversarial profile is also constructed so that z beats x — closing the loop. You now have a four-way cycle with no winner. And a social decision function, by definition, must always produce a winner. Contradiction.</p>
+                <p>The proof handles two cases — when the decisive pairs share an alternative, giving a three-way cycle, and when all four alternatives are distinct, giving a four-way cycle. In both cases, the cycle kills the choice function.</p>
+
+                <h2>Why This Is Stronger Than Arrow</h2>
+                <p>Arrow's result applies to Social Welfare Functions — rules that must produce a complete, consistent ranking of all alternatives. Sen's result applies to Social Decision Functions, which only need to be decisive enough to pick a winner from any set. That is a much weaker requirement. Showing impossibility even under this weaker condition makes Sen's theorem strictly more powerful.</p>
+
+                <h2>What It Means</h2>
+                <p>Sen's theorem does not say freedom is bad or that Pareto efficiency is wrong. It says the two are mathematically incompatible — even in the most minimal sense. Any rule that respects even two people's personal domains will, for some configuration of preferences, fail to produce a consistent social choice.</p>
+                <p>This is not a political statement. It is a mathematical fact. And formalising it in Lean — where every definition must be exact and every proof step verified by a computer — makes that fact harder than ever to argue with.</p>
+
+                <h2>Formalising It in Lean 4</h2>
+                <p>Lean 4 is a proof assistant — a programming language where you do not just write code, you write mathematical proofs, and the computer checks every step. If your proof compiles with no errors, it is correct. There is no room for hand-waving.</p>
+                <p>Formalising Sen's theorem in Lean means translating every concept in the paper into something the computer can reason about. Here is how that works.</p>
+                <p><strong>Preference relations.</strong> In the paper, a preference relation R<sub>i</sub> is a set of pairs (x, y) where individual i considers x at least as good as y. In Lean, we write this as a function that takes two alternatives and returns a true/false statement:</p>
+                <div class="code-block">def PreferenceRelation (Alt : Type*) := Alt -> Alt -> Prop</div>
+                <p>Read as: a preference relation over alternatives is a function that takes any two alternatives and returns a proposition — true if the first is at least as good as the second, false otherwise. The <code>Type*</code> simply means "some abstract set" — we make no assumptions about what the alternatives actually are.</p>
+                <p><strong>Profiles.</strong> A profile is everyone's preferences collected together. In Lean, it is a function from individuals to their preference relations:</p>
+                <div class="code-block">def Profile (Individual : Type*) (Alt : Type*) :=
+  Individual -> PreferenceRelation Alt</div>
+                <p>Give it an individual, get back their ranking. That is the entire profile.</p>
+                <p><strong>The CCR, SWF, and SDF.</strong> The three definitions in Sen's paper map directly to Lean types. The CCR takes a profile and returns a social preference relation. The SWF adds the requirement that the output is a proper ordering. The SDF adds the requirement that the output generates a choice function — always decisive enough to pick a winner:</p>
+                <div class="code-block">def CCR (Individual : Type*) (Alt : Type*) :=
+  Profile Individual Alt -> PreferenceRelation Alt
+
+def SDF {Individual Alt : Type*} (f : CCR Individual Alt) : Prop :=
+  forall (p : Profile Individual Alt), GeneratesChoiceFunction (f p)</div>
+                <p><strong>The conditions.</strong> Each of Sen's four conditions becomes a <code>def</code> that returns <code>Prop</code> — a true/false statement about a given CCR. Condition P, for example, says: for every profile and every pair of alternatives, if every individual strictly prefers x to y, then society must strictly prefer x to y:</p>
+                <div class="code-block">def ConditionP (f : CCR Individual Alt) : Prop :=
+  forall (p : Profile Individual Alt) (x y : Alt),
+    (forall i : Individual, p i x y /\ not (p i y x)) ->
+    (f p x y /\ not (f p y x))</div>
+                <p>The <code>/\</code> means "and", <code>not</code> means "not", and <code>-></code> means "implies". Read the whole thing as: for all profiles p and alternatives x, y — if every individual i has x at least as good as y and not y at least as good as x (strict preference), then the social relation f must do the same.</p>
+                <p><strong>The theorem.</strong> The main theorem states that assuming all conditions hold simultaneously leads to <code>False</code> — a contradiction:</p>
+                <div class="code-block">theorem SenImpossibility {Individual Alt : Type*} [DecidableEq Alt]
+    (f : CCR Individual Alt)
+    (hSDF : SDF f) (hP : ConditionP f) (hL : ConditionL' f) : False</div>
+                <p>The proof then unpacks Condition L' to extract the two decisive individuals and their pairs, constructs Sen's adversarial profile, derives the preference cycle from the conditions, and shows that no best element can exist in the cycle — contradicting the SDF. Lean verifies every single step.</p>
+                <p>What makes formalisation valuable here is not just that the proof is checked. It is that the process of formalising forces complete precision. Every symbol in Sen's paper has to be given an exact meaning. Every implicit assumption has to be made explicit. The result is a proof that cannot be misread, misquoted, or subtly misapplied — the computer will not allow it.</p>
+
+                <p style="font-size:0.8rem; color:#aaa; margin-top:3rem;">© Rajlakshmi Chavan. All rights reserved. This article may not be reproduced or used without explicit written permission from the author.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-sitemap">
+        <a class="footer-link" href="../index.html">Home</a>
+        <a class="footer-link" href="../bio.html">About</a>
+        <a class="footer-link" href="../contact.html">Contact</a>
+    </footer>
+    <button class="dark-mode-toggle" id="darkToggle" onclick="document.body.classList.toggle('dark-mode'); this.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️'">☀️</button>
+</body>
+</html>
