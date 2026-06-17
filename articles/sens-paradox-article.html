@@ -99,7 +99,7 @@ def SDF {Individual Alt : Type*} (f : CCR Individual Alt) : Prop :=
     (hSDF : SDF f) (hP : ConditionP f) (hL : ConditionL' f) : False</div>
                 <p>The proof then unpacks Condition L' to extract the two decisive individuals and their pairs, constructs Sen's adversarial profile, derives the preference cycle from the conditions, and shows that no best element can exist in the cycle, contradicting the SDF. Lean verifies every single step.</p>
                 <p>What makes formalisation valuable here is not just that the proof is checked. It is that the process of formalising forces complete precision. Every symbol in Sen's paper has to be given an exact meaning. Every implicit assumption has to be made explicit. The result is a proof that cannot be misread, misquoted, or subtly misapplied, precisely because Lean will not allow it.</p>
-
+                <p> Note: I first wrote out what I understood of the proof in English. I then fed it into Claude and told it to write that in Lean, and fill in sorrys wherever it got stuck with the proof. Then I gave it to Harmonic's Aristotle to fill in the sorrys and complete the code. </p>
 <p>
     <a href="../projects/sens-paradox.html" style="display:inline-block; margin-top:1rem; padding:0.5rem 1.2rem; background:#4B2E05; color:#fff; text-decoration:none; border-radius:6px; font-family:Helvetica,Arial,sans-serif; font-size:0.88rem;">View proof →</a>
 </p>
